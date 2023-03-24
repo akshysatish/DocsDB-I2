@@ -167,7 +167,6 @@ class DocCollection:
                   print("No condition provided.")
                   del_doc_ids = []
 
-            print(del_doc_ids)
             for doc in ddata:
                   for i in del_doc_ids:
                         if doc['_id'] == i:
@@ -200,7 +199,7 @@ class DocCollection:
             else:
                   updated_docs = data
 
-            jsonDocuments = json.loads(toBeUpdatedJsonDocument)
+            jsonDocuments = utils.condTypeCheck(toBeUpdatedJsonDocument)
             if jsonDocuments != {}:
                   for key, value in jsonDocuments.items():
                         if updateUtils.updateConstraints(key):
